@@ -21,8 +21,6 @@ fun main() {
             "nine" to 9
         )
 
-        var sum = 0;
-
         val result = input.map { line ->
             var result = line
             var i = 0;
@@ -46,7 +44,6 @@ fun main() {
 //            println((fd + ld).toInt())
             return@map (fd + ld).toInt()
         }
-        sum.println()
         return result.sum()
     }
 
@@ -57,7 +54,7 @@ fun main() {
     val testInputPart2 = readInput("Day01_test2")
     println(part2(testInputPart2))
 
-    println("Input:")
+    println("\nInput:")
     val input = readInput("Day01")
     part1(input).println()
     part2(input).println()
