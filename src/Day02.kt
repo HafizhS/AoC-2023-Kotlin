@@ -54,7 +54,7 @@ fun main() {
 
         val result = input.map {
             Game.parse(it).let { game ->
-                game.gameSets.forEach {set ->
+                game.gameSets.forEach { set ->
                     if (set.red > maxRed) return@map 0
                     if (set.green > maxGreen) return@map 0
                     if (set.blue > maxBlue) return@map 0
@@ -68,15 +68,26 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return 0
+        val result = input.map {
+            Game.parse(it).let { game ->
+                return@map game.gameSets.maxOf { it.red } *
+                        game.gameSets.maxOf { it.blue } *
+                        game.gameSets.maxOf { it.green }
+            }
+        }
+        return result.sum()
     }
 
     println("Test Input:")
     val testInput = readInput("Day02_test")
     println(part1(testInput))
 
+    val testInput2 = readInput("Day02_test2")
+    println(part2(testInput2))
+
     println("\nInput:")
     val input = readInput("Day02")
     part1(input).println()
+    part2(input).println()
 
 }
